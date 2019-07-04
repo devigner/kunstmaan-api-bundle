@@ -1,0 +1,26 @@
+{
+  "type": "symfony-bundle",
+  "name": "devigner/kunstmaan-api-bundle",
+  "description": "Kunstmaan API Layer",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Martijn van Beek",
+      "email": "martijn@devigner.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1.3",
+    "ext-ctype": "*",
+    "ext-iconv": "*",
+    "symfony/http-kernel": "*",
+    "kunstmaan/bundles-cms": "*",
+    "jms/serializer-bundle": "^3.3",
+    "zircote/swagger-php": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Devigner\\KunstmaanApiBundle\\": "src/"
+    }
+  }
+}
