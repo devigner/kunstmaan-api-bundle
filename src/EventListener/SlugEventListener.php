@@ -1,7 +1,29 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
+/*
+ * (c) Martijn van Beek <martijn.vanbeek@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Devigner\KunstmaanApiBundle\EventListener;
 
+use Devigner\KunstmaanApiBundle\Entity\EntityInjectionInterface;
+use Devigner\KunstmaanApiBundle\Entity\PageModelInterface;
+use Devigner\KunstmaanApiBundle\Entity\PagePartsModelInterface;
+use Devigner\KunstmaanApiBundle\Event\AdminRequestEvent;
+use Devigner\KunstmaanApiBundle\Model\ModelInjectionInterface;
+use Devigner\KunstmaanApiBundle\Model\ModelSchemaInterface;
+use Devigner\KunstmaanApiBundle\Model\PageParts\AbstractPagePart;
+use Devigner\KunstmaanApiBundle\Model\UserContextInterface;
+use Devigner\KunstmaanApiBundle\Provider\EntityInjectionProviderInterface;
+use Devigner\KunstmaanApiBundle\Traits\EntityManagerTrait;
+use Devigner\KunstmaanApiBundle\Traits\EventDispatcherTrait;
+use Devigner\KunstmaanApiBundle\Traits\SerializerTrait;
+use Devigner\KunstmaanApiBundle\Traits\TokenStorageTrait;
 use FOS\UserBundle\Model\UserInterface;
 use Kunstmaan\MenuBundle\Entity\MenuItem;
 use Kunstmaan\MenuBundle\Repository\MenuItemRepository;
@@ -19,19 +41,6 @@ use Kunstmaan\PagePartBundle\Repository\PagePartRefRepository;
 use Kunstmaan\SeoBundle\Entity\Seo;
 use Kunstmaan\SeoBundle\Repository\SeoRepository;
 use Psr\Container\ContainerInterface;
-use Devigner\KunstmaanApiBundle\Entity\EntityInjectionInterface;
-use Devigner\KunstmaanApiBundle\Entity\PageModelInterface;
-use Devigner\KunstmaanApiBundle\Entity\PagePartsModelInterface;
-use Devigner\KunstmaanApiBundle\Event\AdminRequestEvent;
-use Devigner\KunstmaanApiBundle\Model\ModelInjectionInterface;
-use Devigner\KunstmaanApiBundle\Model\ModelSchemaInterface;
-use Devigner\KunstmaanApiBundle\Model\PageParts\AbstractPagePart;
-use Devigner\KunstmaanApiBundle\Model\UserContextInterface;
-use Devigner\KunstmaanApiBundle\Provider\EntityInjectionProviderInterface;
-use Devigner\KunstmaanApiBundle\Traits\EntityManagerTrait;
-use Devigner\KunstmaanApiBundle\Traits\EventDispatcherTrait;
-use Devigner\KunstmaanApiBundle\Traits\SerializerTrait;
-use Devigner\KunstmaanApiBundle\Traits\TokenStorageTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

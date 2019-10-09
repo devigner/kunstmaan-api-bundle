@@ -14,9 +14,15 @@
     "ext-ctype": "*",
     "ext-iconv": "*",
     "symfony/http-kernel": "*",
+    "symfony/orm-pack": "*",
     "kunstmaan/bundles-cms": "*",
     "jms/serializer-bundle": "^3.3",
     "zircote/swagger-php": "^3.0"
+  }
+  ,
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "phpstan/phpstan": "^0.11.16"
   },
   "autoload": {
     "psr-4": {

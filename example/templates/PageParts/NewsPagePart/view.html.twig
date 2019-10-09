@@ -1,0 +1,11 @@
+<div class="news-pp">
+    <p>{{ resource.title }}</p>
+    <hr />
+    {% if resource.newsPage is not empty %}
+    <ul>
+        {% for item in resource.newsPage %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
